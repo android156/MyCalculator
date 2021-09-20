@@ -34,24 +34,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initView();
         setupListeners();
     }
+
     private void initView() {
 // Получить пользовательские элементы по идентификатору
         resultTv = findViewById(R.id.result_textview);
-        Button button_1 = findViewById(R.id.button_1);
-        Button button_2 = findViewById(R.id.button_2);
-        Button button_3 = findViewById(R.id.button_3);
-        Button button_4 = findViewById(R.id.button_4);
-        Button button_5 = findViewById(R.id.button_5);
-        Button button_6 = findViewById(R.id.button_6);
-        Button button_7 = findViewById(R.id.button_7);
-        Button button_8 = findViewById(R.id.button_8);
-        Button button_9 = findViewById(R.id.button_9);
-        Button button_0 = findViewById(R.id.button_0);
-        Button button_point = findViewById(R.id.button_point);
-        Button button_add = findViewById(R.id.button_add);
-        Button button_mult = findViewById(R.id.button_mult);
-        Button button_div = findViewById(R.id.button_div);
-        Button button_sub = findViewById(R.id.button_sub);
+        button_1 = findViewById(R.id.button_1);
+        button_2 = findViewById(R.id.button_2);
+        button_3 = findViewById(R.id.button_3);
+        button_4 = findViewById(R.id.button_4);
+        button_5 = findViewById(R.id.button_5);
+        button_6 = findViewById(R.id.button_6);
+        button_7 = findViewById(R.id.button_7);
+        button_8 = findViewById(R.id.button_8);
+        button_9 = findViewById(R.id.button_9);
+        button_0 = findViewById(R.id.button_0);
+        button_point = findViewById(R.id.button_point);
+        button_add = findViewById(R.id.button_add);
+        button_mult = findViewById(R.id.button_mult);
+        button_div = findViewById(R.id.button_div);
+        button_sub = findViewById(R.id.button_sub);
     }
 
     private void setupListeners() {
