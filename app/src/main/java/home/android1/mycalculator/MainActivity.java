@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String currentResultString;
     private boolean doubleDotChecker;
     private String lastInputNumber;
-    private char lastPressedButton;
+    private String lastPressedButton;
 
 
     private double calculateResult(double startNumber, double lastNumber, char operation) {
@@ -73,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         typeLastPressedButton = 0;
         doubleDotChecker = false;
         currentResultString = "";
+        resultTv.setText("0");
+
 
     }
 
@@ -103,8 +105,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     // Эта штука должна прицеплять введенный символ к числу и выдавать в TextView
-    private void getNumber(TextView resultTv, char lastPressedButton){
-        currentResultString = String.format(Locale.getDefault(), "%s%c", resultTv.getText(), lastPressedButton);
+    private void displayToOutput(TextView resultTv, String lastPressedButton){
+        if (resultTv.getText().toString() != "0")
+            currentResultString = resultTv.getText().toString() + lastPressedButton;
+        else
+            currentResultString = lastPressedButton;
         resultTv.setText(currentResultString);
     }
 
@@ -117,7 +122,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void onClickDigitButton(View v) {
         typeLastPressedButton = 1;
-        Toast.makeText(MainActivity.this, "Нажата цифра не могу вытащить какая", Toast.LENGTH_SHORT).show();
+        lastPressedButton = ((Button)v).getText().toString();
+        displayToOutput(resultTv, lastPressedButton);
 
     }
 
@@ -129,7 +135,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(MainActivity.this, "В числе уже есть 1 разделитель", Toast.LENGTH_SHORT).show();
         else {
             doubleDotChecker = true;
-            Toast.makeText(MainActivity.this, "Нажата .", Toast.LENGTH_SHORT).show();
+            lastPressedButton = ((Button)v).getText().toString();
+            displayToOutput(resultTv, lastPressedButton);
         }
     }
 
@@ -139,6 +146,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else {
             typeLastPressedButton = 3;
             Toast.makeText(MainActivity.this, "Нажата операция", Toast.LENGTH_SHORT).show();
+
         }
 
 
