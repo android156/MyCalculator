@@ -38,21 +38,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
 // Получить пользовательские элементы по идентификатору
         resultTv = findViewById(R.id.result_textview);
-        button_1 = findViewById(R.id.button_1);
-        button_2 = findViewById(R.id.button_2);
-        button_3 = findViewById(R.id.button_3);
-        button_4 = findViewById(R.id.button_4);
-        button_5 = findViewById(R.id.button_5);
-        button_6 = findViewById(R.id.button_6);
-        button_7 = findViewById(R.id.button_7);
-        button_8 = findViewById(R.id.button_8);
-        button_9 = findViewById(R.id.button_9);
-        button_0 = findViewById(R.id.button_0);
-        button_point = findViewById(R.id.button_point);
-        button_add = findViewById(R.id.button_add);
-        button_mult = findViewById(R.id.button_mult);
-        button_div = findViewById(R.id.button_div);
-        button_sub = findViewById(R.id.button_sub);
+        button_1 = findViewById(R.id.digit_one_button);
+        button_2 = findViewById(R.id.digit_two_button);
+        button_3 = findViewById(R.id.digit_three_button);
+        button_4 = findViewById(R.id.digit_four_button);
+        button_5 = findViewById(R.id.digit_five_button);
+        button_6 = findViewById(R.id.digit_six_button);
+        button_7 = findViewById(R.id.digit_seven_button);
+        button_8 = findViewById(R.id.digit_eight_button);
+        button_9 = findViewById(R.id.digit_nine_button);
+        button_0 = findViewById(R.id.digit_zero_button);
+        button_point = findViewById(R.id.decimal_dot_button);
+        button_add = findViewById(R.id.add_operation_button);
+        button_mult = findViewById(R.id.multiply_operation_button);
+        button_div = findViewById(R.id.divide_operation_button);
+        button_sub = findViewById(R.id.subtraction_operation_button);
     }
 
     private void setupListeners() {
