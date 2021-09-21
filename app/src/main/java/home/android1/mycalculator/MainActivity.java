@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -81,12 +82,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClickDigit(View v) {
-
+        Toast.makeText(MainActivity.this, "Нажата цифра", Toast.LENGTH_LONG).show();
 
     }
 
 
     public void onClickOperation(View v) {
+        Toast.makeText(MainActivity.this, "Нажата операция", Toast.LENGTH_LONG).show();
 
 
     }
