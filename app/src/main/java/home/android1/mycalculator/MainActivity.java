@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView resultTv;
@@ -26,6 +28,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button subtractionOperationButton;
     private Button multiplyOperationButton;
     private Button divideOperationButton;
+    private Button calculateResultButton;
+    private int typeLastPressedButton;
+    private double current_result;
+    private String currentResultString;
+    private boolean doubleDotChecker;
+    private String lastInputNumber;
+    private char lastPressedButton;
+
+
+    private double calculateResult(double startNumber, double lastNumber, char operation) {
+        double result = 0;
+        return result;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,24 +69,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         multiplyOperationButton = findViewById(R.id.multiply_operation_button);
         divideOperationButton = findViewById(R.id.divide_operation_button);
         subtractionOperationButton = findViewById(R.id.subtraction_operation_button);
+        calculateResultButton = findViewById(R.id.calculate_result_button);
+        typeLastPressedButton = 0;
+        doubleDotChecker = false;
+        currentResultString = "";
+
     }
 
     private void setupListeners() {
-        digitOneButton.setOnClickListener(this::onClickDigit);
-        digitTwoButton.setOnClickListener(this::onClickDigit);
-        digitThreeButton.setOnClickListener(this::onClickDigit);
-        digitFourButton.setOnClickListener(this::onClickDigit);
-        digitSixButton.setOnClickListener(this::onClickDigit);
-        digitSevenButton.setOnClickListener(this::onClickDigit);
-        digitSevenButton.setOnClickListener(this::onClickDigit);
-        digitEightButton.setOnClickListener(this::onClickDigit);
-        digitNineButton.setOnClickListener(this::onClickDigit);
-        digitZeroButton.setOnClickListener(this::onClickDigit);
-        decimalDotButton.setOnClickListener(this);
-        addOperationButton.setOnClickListener(this::onClickOperation);
-        subtractionOperationButton.setOnClickListener(this::onClickOperation);
-        multiplyOperationButton.setOnClickListener(this::onClickOperation);
-        divideOperationButton.setOnClickListener(this::onClickOperation);
+        digitOneButton.setOnClickListener(this::onClickDigitButton);
+        digitTwoButton.setOnClickListener(this::onClickDigitButton);
+        digitThreeButton.setOnClickListener(this::onClickDigitButton);
+        digitFourButton.setOnClickListener(this::onClickDigitButton);
+        digitFiveButton.setOnClickListener(this::onClickDigitButton);
+        digitSixButton.setOnClickListener(this::onClickDigitButton);
+        digitSevenButton.setOnClickListener(this::onClickDigitButton);
+        digitEightButton.setOnClickListener(this::onClickDigitButton);
+        digitNineButton.setOnClickListener(this::onClickDigitButton);
+        digitZeroButton.setOnClickListener(this::onClickDigitButton);
+        decimalDotButton.setOnClickListener(this::onClickDotButton);
+        addOperationButton.setOnClickListener(this::onClickOperationButton);
+        subtractionOperationButton.setOnClickListener(this::onClickOperationButton);
+        multiplyOperationButton.setOnClickListener(this::onClickOperationButton);
+        divideOperationButton.setOnClickListener(this::onClickOperationButton);
+        calculateResultButton.setOnClickListener(this::onClickCalculateResultButton);
 
     }
 
@@ -81,14 +102,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public void onClickDigit(View v) {
-        Toast.makeText(MainActivity.this, "Нажата цифра", Toast.LENGTH_LONG).show();
+    // Эта штука должна прицеплять введенный символ к числу и выдавать в TextView
+    private void getNumber(TextView resultTv, char lastPressedButton){
+        currentResultString = String.format(Locale.getDefault(), "%s%c", resultTv.getText(), lastPressedButton);
+        resultTv.setText(currentResultString);
+    }
+
+    private void onClickCalculateResultButton(View v) {
+        if (typeLastPressedButton == 0)
+            Toast.makeText(MainActivity.this, "Нечего считать ", Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, "Нажато =", Toast.LENGTH_SHORT).show();
+    }
+
+
+    public void onClickDigitButton(View v) {
+        typeLastPressedButton = 1;
+        Toast.makeText(MainActivity.this, "Нажата цифра не могу вытащить какая", Toast.LENGTH_SHORT).show();
 
     }
 
 
-    public void onClickOperation(View v) {
-        Toast.makeText(MainActivity.this, "Нажата операция", Toast.LENGTH_LONG).show();
+
+    public void onClickDotButton(View v) {
+        typeLastPressedButton = 2;
+        if (doubleDotChecker)
+            Toast.makeText(MainActivity.this, "В числе уже есть 1 разделитель", Toast.LENGTH_SHORT).show();
+        else {
+            doubleDotChecker = true;
+            Toast.makeText(MainActivity.this, "Нажата .", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void onClickOperationButton(View v) {
+        if (typeLastPressedButton == 0)
+            Toast.makeText(MainActivity.this, "Операция сейчас неуместна", Toast.LENGTH_SHORT).show();
+        else {
+            typeLastPressedButton = 3;
+            Toast.makeText(MainActivity.this, "Нажата операция", Toast.LENGTH_SHORT).show();
+        }
 
 
     }
