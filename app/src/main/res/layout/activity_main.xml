@@ -9,14 +9,13 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/ic_launcher_background"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/ic_launcher_background" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
 
 
         <TextView
@@ -30,11 +29,10 @@
             android:id="@+id/result_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:text="0"
             android:layout_margin="10dp"
-            android:textColor="#F60657"
             android:background="@drawable/result_text_style"
+            android:gravity="right"
+            android:textColor="#F60657"
             android:textSize="30sp" />
 
         <LinearLayout
@@ -43,7 +41,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button_1"
+                android:id="@+id/digit_one_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -52,7 +50,7 @@
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/button_2"
+                android:id="@+id/digit_two_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -62,7 +60,7 @@
 
 
             <Button
-                android:id="@+id/button_3"
+                android:id="@+id/digit_three_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -71,7 +69,7 @@
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/button_add"
+                android:id="@+id/add_operation_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -86,7 +84,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button_4"
+                android:id="@+id/digit_four_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -95,7 +93,7 @@
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/button_5"
+                android:id="@+id/digit_five_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -104,15 +102,16 @@
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/button_6"
+                android:id="@+id/digit_six_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:text="6"
                 android:textSize="16sp" />
+
             <Button
-                android:id="@+id/button_sub"
+                android:id="@+id/subtraction_operation_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -127,7 +126,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button_7"
+                android:id="@+id/digit_seven_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -136,7 +135,7 @@
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/button_8"
+                android:id="@+id/digit_eight_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -145,15 +144,16 @@
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/button_9"
+                android:id="@+id/digit_nine_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:text="9"
                 android:textSize="16sp" />
+
             <Button
-                android:id="@+id/button_mult"
+                android:id="@+id/multiply_operation_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -161,13 +161,14 @@
                 android:text="*"
                 android:textSize="16sp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button_0"
+                android:id="@+id/digit_zero_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -176,7 +177,7 @@
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/button_point"
+                android:id="@+id/decimal_dot_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -185,15 +186,17 @@
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/button_eq"
+                android:id="@+id/calculate_result_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:text="="
+                android:textColor="#F60657"
                 android:textSize="16sp" />
+
             <Button
-                android:id="@+id/button_div"
+                android:id="@+id/divide_operation_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
