@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
-                android:backgroundTint="@color/violet_digit_button"
+                android:backgroundTint="@color/digit_button"
                 android:text="1"
                 android:textSize="@dimen/button_text_size" />
 
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
-                android:backgroundTint="@color/violet_digit_button"
+                android:backgroundTint="@color/digit_button"
                 android:text="2"
                 android:textSize="@dimen/button_text_size" />
 
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
-                android:backgroundTint="@color/violet_digit_button"
+                android:backgroundTint="@color/digit_button"
                 android:text="3"
                 android:textSize="@dimen/button_text_size" />
 
@@ -77,9 +77,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
-                android:backgroundTint="@color/dark_violet_sign_button"
+                android:backgroundTint="@color/sign_button"
                 android:text="+"
-                android:textColor="@color/sign_button_text_color"
+                android:textColor="@color/sign_button_text"
                 android:textSize="@dimen/button_text_size" />
         </LinearLayout>
 
@@ -94,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
-                android:backgroundTint="@color/violet_digit_button"
+                android:backgroundTint="@color/digit_button"
                 android:text="4"
                 android:textSize="@dimen/button_text_size" />
 
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
-                android:backgroundTint="@color/violet_digit_button"
+                android:backgroundTint="@color/digit_button"
                 android:text="5"
                 android:textSize="@dimen/button_text_size" />
 
@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
-                android:backgroundTint="@color/violet_digit_button"
+                android:backgroundTint="@color/digit_button"
                 android:text="6"
                 android:textSize="@dimen/button_text_size" />
 
@@ -124,9 +124,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
-                android:backgroundTint="@color/dark_violet_sign_button"
+                android:backgroundTint="@color/sign_button"
                 android:text="-"
-                android:textColor="@color/sign_button_text_color"
+                android:textColor="@color/sign_button_text"
                 android:textSize="@dimen/button_text_size" />
         </LinearLayout>
 
@@ -141,7 +141,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
-                android:backgroundTint="@color/violet_digit_button"
+                android:backgroundTint="@color/digit_button"
                 android:text="7"
                 android:textSize="@dimen/button_text_size" />
 
@@ -151,7 +151,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
-                android:backgroundTint="@color/violet_digit_button"
+                android:backgroundTint="@color/digit_button"
                 android:text="8"
                 android:textSize="@dimen/button_text_size" />
 
@@ -161,7 +161,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
-                android:backgroundTint="@color/violet_digit_button"
+                android:backgroundTint="@color/digit_button"
                 android:text="9"
                 android:textSize="@dimen/button_text_size" />
 
@@ -171,9 +171,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
-                android:backgroundTint="@color/dark_violet_sign_button"
+                android:backgroundTint="@color/sign_button"
                 android:text="*"
-                android:textColor="@color/sign_button_text_color"
+                android:textColor="@color/sign_button_text"
                 android:textSize="@dimen/button_text_size" />
         </LinearLayout>
 
@@ -188,7 +188,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
-                android:backgroundTint="@color/violet_digit_button"
+                android:backgroundTint="@color/digit_button"
                 android:text="0"
                 android:textSize="@dimen/button_text_size" />
 
@@ -198,7 +198,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
-                android:backgroundTint="@color/violet_digit_button"
+                android:backgroundTint="@color/digit_button"
                 android:text="."
                 android:textSize="@dimen/button_text_size" />
 
@@ -208,9 +208,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
-                android:backgroundTint="@color/dark_violet_sign_button"
+                android:backgroundTint="@color/sign_button"
                 android:text="="
-                android:textColor="@color/sign_button_text_color"
+                android:textColor="@color/sign_button_text"
                 android:textSize="@dimen/button_text_size" />
 
             <Button
@@ -219,9 +219,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
-                android:backgroundTint="@color/dark_violet_sign_button"
+                android:backgroundTint="@color/sign_button"
                 android:text="/"
-                android:textColor="@color/sign_button_text_color"
+                android:textColor="@color/sign_button_text"
                 android:textSize="@dimen/button_text_size" />
         </LinearLayout>
     </LinearLayout>

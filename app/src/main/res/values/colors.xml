@@ -8,7 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="magenta">#F60657</color>
-    <color name="violet_digit_button">#6019DF</color>
-    <color name="dark_violet_sign_button">#3D04A1</color>
-    <color name="sign_button_text_color">#F60657</color>
+    <color name="violet">#6019DF</color>
+    <color name="dark_violet">#6019DF</color>
+
+
+    <color name="digit_button">@color/violet</color>
+    <color name="sign_button">@color/dark_violet</color>
+    <color name="sign_button_text">@color/magenta</color>
 </resources>
