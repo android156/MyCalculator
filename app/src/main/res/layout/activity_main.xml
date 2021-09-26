@@ -19,13 +19,6 @@
 
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Калькулятор"
-            android:textSize="@dimen/app_name_size" />
-
-        <TextView
             android:id="@+id/result_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
