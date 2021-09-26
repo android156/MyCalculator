@@ -29,7 +29,7 @@
             android:id="@+id/result_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/half_default_button_margin"
             android:background="@drawable/result_text_style"
             android:gravity="right"
             android:textColor="@color/magenta"
@@ -42,39 +42,44 @@
 
             <Button
                 android:id="@+id/digit_one_button"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/button_margin"
+                android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
+                android:backgroundTint="@color/violet_digit_button"
                 android:text="1"
                 android:textSize="@dimen/button_text_size" />
 
             <Button
                 android:id="@+id/digit_two_button"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/button_margin"
+                android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
+                android:backgroundTint="@color/violet_digit_button"
                 android:text="2"
                 android:textSize="@dimen/button_text_size" />
 
 
             <Button
                 android:id="@+id/digit_three_button"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/button_margin"
+                android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
+                android:backgroundTint="@color/violet_digit_button"
                 android:text="3"
                 android:textSize="@dimen/button_text_size" />
 
             <Button
                 android:id="@+id/add_operation_button"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/button_margin"
+                android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
+                android:backgroundTint="@color/dark_violet_sign_button"
                 android:text="+"
+                android:textColor="@color/sign_button_text_color"
                 android:textSize="@dimen/button_text_size" />
         </LinearLayout>
 
@@ -85,38 +90,43 @@
 
             <Button
                 android:id="@+id/digit_four_button"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/button_margin"
+                android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
+                android:backgroundTint="@color/violet_digit_button"
                 android:text="4"
                 android:textSize="@dimen/button_text_size" />
 
             <Button
                 android:id="@+id/digit_five_button"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/button_margin"
+                android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
+                android:backgroundTint="@color/violet_digit_button"
                 android:text="5"
                 android:textSize="@dimen/button_text_size" />
 
             <Button
                 android:id="@+id/digit_six_button"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/button_margin"
+                android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
+                android:backgroundTint="@color/violet_digit_button"
                 android:text="6"
                 android:textSize="@dimen/button_text_size" />
 
             <Button
                 android:id="@+id/subtraction_operation_button"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/button_margin"
+                android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
+                android:backgroundTint="@color/dark_violet_sign_button"
                 android:text="-"
+                android:textColor="@color/sign_button_text_color"
                 android:textSize="@dimen/button_text_size" />
         </LinearLayout>
 
@@ -127,38 +137,43 @@
 
             <Button
                 android:id="@+id/digit_seven_button"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/button_margin"
+                android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
+                android:backgroundTint="@color/violet_digit_button"
                 android:text="7"
                 android:textSize="@dimen/button_text_size" />
 
             <Button
                 android:id="@+id/digit_eight_button"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/button_margin"
+                android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
+                android:backgroundTint="@color/violet_digit_button"
                 android:text="8"
                 android:textSize="@dimen/button_text_size" />
 
             <Button
                 android:id="@+id/digit_nine_button"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/button_margin"
+                android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
+                android:backgroundTint="@color/violet_digit_button"
                 android:text="9"
                 android:textSize="@dimen/button_text_size" />
 
             <Button
                 android:id="@+id/multiply_operation_button"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/button_margin"
+                android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
+                android:backgroundTint="@color/dark_violet_sign_button"
                 android:text="*"
+                android:textColor="@color/sign_button_text_color"
                 android:textSize="@dimen/button_text_size" />
         </LinearLayout>
 
@@ -169,39 +184,44 @@
 
             <Button
                 android:id="@+id/digit_zero_button"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/button_margin"
+                android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
+                android:backgroundTint="@color/violet_digit_button"
                 android:text="0"
                 android:textSize="@dimen/button_text_size" />
 
             <Button
                 android:id="@+id/decimal_dot_button"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/button_margin"
+                android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
+                android:backgroundTint="@color/violet_digit_button"
                 android:text="."
                 android:textSize="@dimen/button_text_size" />
 
             <Button
                 android:id="@+id/calculate_result_button"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/button_margin"
+                android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
+                android:backgroundTint="@color/dark_violet_sign_button"
                 android:text="="
-                android:textColor="#F60657"
+                android:textColor="@color/sign_button_text_color"
                 android:textSize="@dimen/button_text_size" />
 
             <Button
                 android:id="@+id/divide_operation_button"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/button_margin"
+                android:layout_margin="@dimen/default_button_margin"
                 android:layout_weight="1"
+                android:backgroundTint="@color/dark_violet_sign_button"
                 android:text="/"
+                android:textColor="@color/sign_button_text_color"
                 android:textSize="@dimen/button_text_size" />
         </LinearLayout>
     </LinearLayout>

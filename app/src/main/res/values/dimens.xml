@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="app_name_size">16sp</dimen>
-    <dimen name="result_string_text_size">30sp</dimen>
+    <dimen name="result_string_text_size">32sp</dimen>
     <dimen name="button_text_size">16sp</dimen>
-    <dimen name="button_margin">10dp</dimen>
+    <dimen name="default_button_margin">8dp</dimen>
+    <dimen name="half_default_button_margin">4dp</dimen>
+    <dimen name="button_width">0dp</dimen>
 </resources>
