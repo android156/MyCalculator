@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private boolean doubleDotChecker;
     private String lastInputNumber;
     private String lastPressedButton;
+    private int operationsCounter;
 
 
     private double calculateResult(double startNumber, double lastNumber, char operation) {
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         calculateResultButton = findViewById(R.id.calculate_result_button);
         typeLastPressedButton = 0;
         doubleDotChecker = false;
+        operationsCounter = 0;
         currentResultString = "";
         resultTv.setText("0");
 
