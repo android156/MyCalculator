@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="magenta">#F60657</color>
     <color name="violet">#6019DF</color>
-    <color name="dark_violet">#6019DF</color>
+    <color name="dark_violet">#1D024E</color>
 
 
     <color name="digit_button">@color/violet</color>

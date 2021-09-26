@@ -65,6 +65,16 @@
                 android:textSize="@dimen/button_text_size" />
 
             <Button
+                android:id="@+id/digit_four_button"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/digit_button"
+                android:text="4"
+                android:textSize="@dimen/button_text_size" />
+
+            <Button
                 android:id="@+id/add_operation_button"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
@@ -81,15 +91,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/digit_four_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/digit_button"
-                android:text="4"
-                android:textSize="@dimen/button_text_size" />
 
             <Button
                 android:id="@+id/digit_five_button"
@@ -112,23 +113,6 @@
                 android:textSize="@dimen/button_text_size" />
 
             <Button
-                android:id="@+id/subtraction_operation_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/sign_button"
-                android:text="-"
-                android:textColor="@color/sign_button_text"
-                android:textSize="@dimen/button_text_size" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
                 android:id="@+id/digit_seven_button"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
@@ -149,6 +133,24 @@
                 android:textSize="@dimen/button_text_size" />
 
             <Button
+                android:id="@+id/subtraction_operation_button"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/sign_button"
+                android:text="-"
+                android:textColor="@color/sign_button_text"
+                android:textSize="@dimen/button_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <Button
                 android:id="@+id/digit_nine_button"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
@@ -156,6 +158,26 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/digit_button"
                 android:text="9"
+                android:textSize="@dimen/button_text_size" />
+
+            <Button
+                android:id="@+id/digit_zero_button"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/digit_button"
+                android:text="0"
+                android:textSize="@dimen/button_text_size" />
+
+            <Button
+                android:id="@+id/decimal_dot_button"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/default_button_margin"
+                android:layout_weight="2"
+                android:backgroundTint="@color/digit_button"
+                android:text="."
                 android:textSize="@dimen/button_text_size" />
 
             <Button
@@ -175,32 +197,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/digit_zero_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/digit_button"
-                android:text="0"
-                android:textSize="@dimen/button_text_size" />
-
-            <Button
-                android:id="@+id/decimal_dot_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/digit_button"
-                android:text="."
-                android:textSize="@dimen/button_text_size" />
 
             <Button
                 android:id="@+id/calculate_result_button"
                 android:layout_width="@dimen/button_width"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
+                android:layout_weight="4"
                 android:backgroundTint="@color/sign_button"
                 android:text="="
                 android:textColor="@color/sign_button_text"
@@ -217,6 +220,5 @@
                 android:textColor="@color/sign_button_text"
                 android:textSize="@dimen/button_text_size" />
         </LinearLayout>
-
     </LinearLayout>
 </FrameLayout>
