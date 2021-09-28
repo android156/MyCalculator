@@ -35,55 +35,30 @@
 
             <Button
                 android:id="@+id/digit_one_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/digit_button"
-                android:text="@string/button_1"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/CalcDigitButtonStyle"
+                android:text="@string/button_1" />
 
             <Button
                 android:id="@+id/digit_two_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/digit_button"
-                android:text="@string/button_2"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/CalcDigitButtonStyle"
+                android:text="@string/button_2" />
 
 
             <Button
                 android:id="@+id/digit_three_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/digit_button"
-                android:text="@string/button_3"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/CalcDigitButtonStyle"
+                android:text="@string/button_3" />
 
             <Button
                 android:id="@+id/digit_four_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/digit_button"
-                android:text="@string/button_4"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/CalcDigitButtonStyle"
+                android:text="@string/button_4" />
 
             <Button
                 android:id="@+id/add_operation_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/sign_button"
-                android:text="@string/button_add"
-                android:textColor="@color/sign_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/CalcOperationButtonStyle"
+                android:text="@string/button_add" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -94,54 +69,29 @@
 
             <Button
                 android:id="@+id/digit_five_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/digit_button"
-                android:text="@string/button_5"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/CalcDigitButtonStyle"
+                android:text="@string/button_5" />
 
             <Button
                 android:id="@+id/digit_six_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/digit_button"
-                android:text="@string/button_6"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/CalcDigitButtonStyle"
+                android:text="@string/button_6" />
 
             <Button
                 android:id="@+id/digit_seven_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/digit_button"
-                android:text="@string/button_7"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/CalcDigitButtonStyle"
+                android:text="@string/button_7" />
 
             <Button
                 android:id="@+id/digit_eight_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/digit_button"
-                android:text="@string/button_8"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/CalcDigitButtonStyle"
+                android:text="@string/button_8" />
 
             <Button
                 android:id="@+id/subtraction_operation_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/sign_button"
-                android:text="@string/button_sub"
-                android:textColor="@color/sign_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/CalcOperationButtonStyle"
+                android:text="@string/button_sub" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -152,44 +102,25 @@
 
             <Button
                 android:id="@+id/digit_nine_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/digit_button"
-                android:text="@string/button_9"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/CalcDigitButtonStyle"
+                android:text="@string/button_9" />
 
             <Button
                 android:id="@+id/digit_zero_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
+                style="@style/CalcDigitButtonStyle"
                 android:layout_weight="2"
-                android:backgroundTint="@color/digit_button"
-                android:text="@string/button_0"
-                android:textSize="@dimen/button_text_size" />
+                android:text="@string/button_0" />
 
             <Button
                 android:id="@+id/decimal_dot_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/digit_button"
-                android:text="@string/button_dot"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/CalcDigitButtonStyle"
+                android:text="@string/button_dot" />
 
             <Button
                 android:id="@+id/multiply_operation_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/sign_button"
-                android:text="@string/button_mult"
-                android:textColor="@color/sign_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/CalcOperationButtonStyle"
+                android:text="@string/button_mult" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -200,25 +131,19 @@
 
             <Button
                 android:id="@+id/calculate_result_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
+                style="@style/CalcOperationButtonStyle"
+
                 android:layout_weight="4"
-                android:backgroundTint="@color/sign_button"
-                android:text="@string/button_eqv"
-                android:textColor="@color/sign_button_text"
-                android:textSize="@dimen/button_text_size" />
+
+                android:text="@string/button_eqv" />
 
             <Button
                 android:id="@+id/divide_operation_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/sign_button"
-                android:text="@string/button_div"
-                android:textColor="@color/sign_button_text"
-                android:textSize="@dimen/button_text_size" />
+                style="@style/CalcOperationButtonStyle"
+                android:text="@string/button_div" />
+
         </LinearLayout>
+
     </LinearLayout>
+
 </FrameLayout>

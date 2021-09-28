@@ -14,5 +14,5 @@
 
     <color name="digit_button">@color/violet</color>
     <color name="sign_button">@color/dark_violet</color>
-    <color name="sign_button_text">@color/magenta</color>
+    <color name="sign_button_text_color">@color/magenta</color>
 </resources>

@@ -10,5 +10,14 @@
         <item name="android:backgroundTint">@color/digit_button</item>
 
     </style>
+    <style name="CalcOperationButtonStyle">
+        <item name="android:layout_width">@dimen/button_width</item>
+        <item name="android:layout_margin">@dimen/default_button_margin</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:backgroundTint">@color/sign_button</item>
+        <item name="android:textColor">@color/sign_button_text_color</item>
+    </style>
 
 </resources>
