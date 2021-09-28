@@ -34,14 +34,9 @@
             android:orientation="horizontal">
 
             <Button
+                style="@style/CalcDigitButtonStyle"
                 android:id="@+id/digit_one_button"
-                android:layout_width="@dimen/button_width"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/default_button_margin"
-                android:layout_weight="1"
-                android:backgroundTint="@color/digit_button"
-                android:text="@string/button_1"
-                android:textSize="@dimen/button_text_size" />
+                android:text="@string/button_1"/>
 
             <Button
                 android:id="@+id/digit_two_button"
