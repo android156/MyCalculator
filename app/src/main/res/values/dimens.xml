@@ -6,4 +6,5 @@
     <dimen name="default_button_margin">8dp</dimen>
     <dimen name="half_default_button_margin">4dp</dimen>
     <dimen name="button_width">0dp</dimen>
+    <dimen name="button_sign_corner_radius">10dp</dimen>
 </resources>

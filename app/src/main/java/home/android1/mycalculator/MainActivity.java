@@ -29,13 +29,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button multiplyOperationButton;
     private Button divideOperationButton;
     private Button calculateResultButton;
-    private int typeLastPressedButton;
+    private String typeLastPressedButton;
     private double current_result;
     private String currentResultString;
     private boolean doubleDotChecker;
     private String lastInputNumber;
     private String lastPressedButton;
     private int operationsCounter;
+    private Calculator calculator;
+    boolean isPreviousNumberEnded;
 
 
     private double calculateResult(double startNumber, double lastNumber, char operation) {
@@ -71,11 +73,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         divideOperationButton = findViewById(R.id.divide_operation_button);
         subtractionOperationButton = findViewById(R.id.subtraction_operation_button);
         calculateResultButton = findViewById(R.id.calculate_result_button);
-        typeLastPressedButton = 0;
+        typeLastPressedButton = "None";
         doubleDotChecker = false;
         operationsCounter = 0;
         currentResultString = "";
         resultTv.setText("0");
+        isPreviousNumberEnded = false;
+        calculator = new Calculator("0", 0, 0, '0', 0);
 
 
     }
@@ -107,50 +111,85 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     // Эта штука должна прицеплять введенный символ к числу и выдавать в TextView
-    private void displayToOutput(TextView resultTv, String lastPressedButton){
-        if (resultTv.getText().toString() != "0")
+    private void displayToOutput(TextView resultTv, String lastPressedButton) {
+        if (calculator.intermediateResult != 0)
             currentResultString = resultTv.getText().toString() + lastPressedButton;
         else
             currentResultString = lastPressedButton;
+        calculator.intermediateResult = Double.parseDouble(currentResultString);
         resultTv.setText(currentResultString);
     }
 
     private void onClickCalculateResultButton(View v) {
-        if (typeLastPressedButton == 0)
+        if (typeLastPressedButton.equals("None"))
             Toast.makeText(MainActivity.this, "Нечего считать ", Toast.LENGTH_SHORT).show();
-        Toast.makeText(MainActivity.this, "Нажато =", Toast.LENGTH_SHORT).show();
+        else if (typeLastPressedButton == "digit")
+            if (operationsCounter >= 1) {
+                operationsCounter = 0;
+                typeLastPressedButton = "equal";
+                calculator.secondNumber = calculator.intermediateResult;
+                calculator.firstNumber = calculator.calculate(calculator.firstNumber, calculator.secondNumber, calculator.operation);
+                currentResultString = String.valueOf(calculator.firstNumber);
+                resultTv.setText(currentResultString);
+                calculator.intermediateResult = calculator.firstNumber;
+                isPreviousNumberEnded = true;
+            }
+
+
+
     }
 
 
     public void onClickDigitButton(View v) {
-        typeLastPressedButton = 1;
-        lastPressedButton = ((Button)v).getText().toString();
-        displayToOutput(resultTv, lastPressedButton);
-
+        if (!typeLastPressedButton.equals("equal")) {
+            typeLastPressedButton = "digit";
+            lastPressedButton = ((Button) v).getText().toString();
+            if (isPreviousNumberEnded) {
+                isPreviousNumberEnded = false;
+                calculator.intermediateResult = 0;
+                resultTv.setText("");
+            }
+            displayToOutput(resultTv, lastPressedButton);
+        } else
+            Toast.makeText(MainActivity.this, "Жду операцию", Toast.LENGTH_SHORT).show();
     }
-
 
 
     public void onClickDotButton(View v) {
-        typeLastPressedButton = 2;
-        if (doubleDotChecker)
-            Toast.makeText(MainActivity.this, "В числе уже есть 1 разделитель", Toast.LENGTH_SHORT).show();
-        else {
-            doubleDotChecker = true;
-            lastPressedButton = ((Button)v).getText().toString();
-            displayToOutput(resultTv, lastPressedButton);
-        }
+        if (!typeLastPressedButton.equals("equal")) {
+            typeLastPressedButton = "dot";
+            if (doubleDotChecker)
+                Toast.makeText(MainActivity.this, "В числе уже есть 1 разделитель", Toast.LENGTH_SHORT).show();
+            else {
+                doubleDotChecker = true;
+                lastPressedButton = ((Button) v).getText().toString();
+                displayToOutput(resultTv, lastPressedButton);
+            }
+        } else Toast.makeText(MainActivity.this, "Жду операцию", Toast.LENGTH_SHORT).show();
     }
 
     public void onClickOperationButton(View v) {
-        if (typeLastPressedButton == 0)
+
+        if (typeLastPressedButton.equals("None"))
             Toast.makeText(MainActivity.this, "Операция сейчас неуместна", Toast.LENGTH_SHORT).show();
-        else {
-            typeLastPressedButton = 3;
-            Toast.makeText(MainActivity.this, "Нажата операция", Toast.LENGTH_SHORT).show();
+        else if (typeLastPressedButton.equals("digit") || typeLastPressedButton.equals("equal")) {
+            typeLastPressedButton = "digit";
+            operationsCounter++;
+            if (operationsCounter == 1) {
+                calculator.firstNumber = calculator.intermediateResult;
+                calculator.operation = ((Button) v).getText().toString().charAt(0);
+                calculator.intermediateResult = 0;
+                isPreviousNumberEnded = true;
+            } else {
+                calculator.secondNumber = calculator.intermediateResult;
+                calculator.firstNumber = calculator.calculate(calculator.firstNumber, calculator.secondNumber, calculator.operation);
+                calculator.operation = ((Button) v).getText().toString().charAt(0);
+                currentResultString = String.valueOf(calculator.firstNumber);
+                resultTv.setText(currentResultString);
+                isPreviousNumberEnded = true;
 
+            }
         }
-
 
     }
 }

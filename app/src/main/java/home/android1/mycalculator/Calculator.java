@@ -1,17 +1,18 @@
 package home.android1.mycalculator;
 
 public class Calculator {
-    double calculateResult;
+    double intermediateResult;
     double firstNumber;
     double secondNumber;
+    String inputString;
     char operation;
 
-    public Calculator(String inputString, double firstNumber, double secondNumber, char operation, double calculateResult) {
-
+    public Calculator(String inputString, double firstNumber, double secondNumber, char operation, double intermediateResult) {
+        this.inputString = inputString;
         this.firstNumber = firstNumber;
         this.secondNumber = secondNumber;
         this.operation = operation;
-        this.calculateResult = calculate(this.firstNumber, this.secondNumber, this.operation);
+        this.intermediateResult = intermediateResult;
     }
 
     double calculate (double firstNumber, double secondNumber, char operation){
