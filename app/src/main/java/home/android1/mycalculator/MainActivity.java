@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button multiplyOperationButton;
     private Button divideOperationButton;
     private Button calculateResultButton;
+    private Button calculateSquareRootButton;
+    private Button addToMemoryButton;
+    private Button getFromMemoryButton;
+    private Button clearButton;
     private String typeLastPressedButton;
     private double current_result;
     private String currentResultString;
@@ -73,6 +77,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         divideOperationButton = findViewById(R.id.divide_operation_button);
         subtractionOperationButton = findViewById(R.id.subtraction_operation_button);
         calculateResultButton = findViewById(R.id.calculate_result_button);
+        clearButton = findViewById(R.id.operation_clear_button);
+        calculateSquareRootButton = findViewById(R.id.operation_sqrt_button);
+        addToMemoryButton = findViewById(R.id.memory_button);
+        getFromMemoryButton = findViewById(R.id.memory_restore_button);
         typeLastPressedButton = "None";
         doubleDotChecker = false;
         operationsCounter = 0;
@@ -101,6 +109,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         multiplyOperationButton.setOnClickListener(this::onClickOperationButton);
         divideOperationButton.setOnClickListener(this::onClickOperationButton);
         calculateResultButton.setOnClickListener(this::onClickCalculateResultButton);
+        clearButton.setOnClickListener(this::onClickCalculateResultButton);
+        calculateSquareRootButton.setOnClickListener(this::onClickCalculateResultButton);
+        addToMemoryButton.setOnClickListener(this::onClickCalculateResultButton);
+        getFromMemoryButton.setOnClickListener(this::onClickCalculateResultButton);
+
 
     }
 

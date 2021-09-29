@@ -13,8 +13,8 @@
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="640dp"
+        android:layout_height="1205dp"
         android:orientation="vertical">
 
 
@@ -27,6 +27,38 @@
             android:gravity="right"
             android:textColor="@color/magenta"
             android:textSize="@dimen/result_string_text_size" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/memory_button"
+                style="@style/CalcButtonStyle.Operation"
+                android:text="@string/button_memory" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/memory_restore_button"
+                style="@style/CalcButtonStyle.Operation"
+                android:text="@string/button_memory_restore" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/operation_sqrt_button"
+                style="@style/CalcButtonStyle.Operation"
+                android:text="@string/button_sqrt" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/operation_clear_button"
+                style="@style/CalcButtonStyle.Operation"
+                android:text="@string/button_clear" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -126,9 +158,9 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/calculate_result_button"
                 style="@style/CalcButtonStyle.Operation"
+                android:text="@string/button_eqv"
                 app:strokeColor="@color/magenta"
-                app:strokeWidth="5dp"
-                android:text="@string/button_eqv" />
+                app:strokeWidth="5dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/divide_operation_button"
@@ -136,6 +168,7 @@
                 android:text="@string/button_div" />
 
         </LinearLayout>
+
 
     </LinearLayout>
 </FrameLayout>
