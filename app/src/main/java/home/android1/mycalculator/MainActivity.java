@@ -8,8 +8,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Locale;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView resultTv;
@@ -33,15 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button addToMemoryButton;
     private Button getFromMemoryButton;
     private Button clearButton;
-    private String typeLastPressedButton;
-    private double current_result;
-    private String currentResultString;
-    private boolean doubleDotChecker;
-    private String lastInputNumber;
-    private String lastPressedButton;
-    private int operationsCounter;
     private Calculator calculator;
-    boolean isPreviousNumberEnded;
 
 
     private double calculateResult(double startNumber, double lastNumber, char operation) {
@@ -81,13 +71,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         calculateSquareRootButton = findViewById(R.id.operation_sqrt_button);
         addToMemoryButton = findViewById(R.id.memory_button);
         getFromMemoryButton = findViewById(R.id.memory_restore_button);
-        typeLastPressedButton = "None";
-        doubleDotChecker = false;
-        operationsCounter = 0;
-        currentResultString = "";
         resultTv.setText("0");
-        isPreviousNumberEnded = false;
-        calculator = new Calculator("0", 0, 0, '0', 0);
+        calculator = new Calculator(0, 0, 0, "", 'N', 0, 0, "None", "", true, true);
 
 
     }
@@ -109,100 +94,138 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         multiplyOperationButton.setOnClickListener(this::onClickOperationButton);
         divideOperationButton.setOnClickListener(this::onClickOperationButton);
         calculateResultButton.setOnClickListener(this::onClickCalculateResultButton);
-        clearButton.setOnClickListener(this::onClickCalculateResultButton);
-        calculateSquareRootButton.setOnClickListener(this::onClickCalculateResultButton);
-        addToMemoryButton.setOnClickListener(this::onClickCalculateResultButton);
-        getFromMemoryButton.setOnClickListener(this::onClickCalculateResultButton);
+        clearButton.setOnClickListener(this::onClickClearButton);
+        calculateSquareRootButton.setOnClickListener(this::onClickOperationButton);
+        addToMemoryButton.setOnClickListener(this::onClickMemoryButton);
+        getFromMemoryButton.setOnClickListener(this::onClickMemoryButton);
 
 
     }
+
+    private void onClickClearButton(View view) {
+    }
+
+    private void onClickMemoryButton(View view) {
+    }
+
 
     @Override
     public void onClick(View v) {
 
-
     }
 
-    // Эта штука должна прицеплять введенный символ к числу и выдавать в TextView
-    private void displayToOutput(TextView resultTv, String lastPressedButton) {
-        if (calculator.intermediateResult != 0)
-            currentResultString = resultTv.getText().toString() + lastPressedButton;
-        else
-            currentResultString = lastPressedButton;
-        calculator.intermediateResult = Double.parseDouble(currentResultString);
+    public String getCurrentButtonText(View v) {
+        return ((Button) v).getText().toString();
+    }
+
+    // Эта штука должна прицеплять введенный символ(строка) к числу(строка) и выдавать в TextView
+    private void displayResult(TextView resultTv, String currentResultString) {
         resultTv.setText(currentResultString);
     }
 
+    public String addLastChar(String currentResultString, String lastChar) {
+        return (currentResultString + lastChar);
+    }
+
+    public String addFirstChar(String currentResultString, String firstChar) {
+        return (firstChar + currentResultString);
+    }
+
+
+    public String removeLastChar(String s) {
+        if (s == null || s.length() == 0)
+            return "0";
+        else
+            return (s.substring(0, s.length() - 1));
+    }
+
+    public String removeFirstChar(String s) {
+        if (s == null || s.length() == 0)
+            return "0";
+        else
+            return (s.substring(1, s.length()));
+    }
+
+
     private void onClickCalculateResultButton(View v) {
-        if (typeLastPressedButton.equals("None"))
+        if (calculator.lastPressedButtonType.equals("None") || calculator.operationCounter == 0)
             Toast.makeText(MainActivity.this, "Нечего считать ", Toast.LENGTH_SHORT).show();
-        else if (typeLastPressedButton == "digit")
-            if (operationsCounter >= 1) {
-                operationsCounter = 0;
-                typeLastPressedButton = "equal";
+        else {
+            calculator.operationCounter = 0;
+            calculator.dotCounter = 0;
+            if (calculator.lastPressedButtonType.equals("operation") || calculator.lastPressedButtonType.equals("dot")) {
+                calculator.currentResultString = removeLastChar(calculator.currentResultString);
+                displayResult(resultTv, calculator.currentResultString);
+            } else {
+                calculator.lastPressedButtonType = "equal";
                 calculator.secondNumber = calculator.intermediateResult;
                 calculator.firstNumber = calculator.calculate(calculator.firstNumber, calculator.secondNumber, calculator.operation);
-                currentResultString = String.valueOf(calculator.firstNumber);
-                resultTv.setText(currentResultString);
+                calculator.currentResultString = String.valueOf(calculator.firstNumber);
+                displayResult(resultTv, calculator.currentResultString);
                 calculator.intermediateResult = calculator.firstNumber;
-                isPreviousNumberEnded = true;
+                calculator.isFirstNumberEmpty = false;
             }
 
-
+        }
 
     }
 
 
     public void onClickDigitButton(View v) {
-        if (!typeLastPressedButton.equals("equal")) {
-            typeLastPressedButton = "digit";
-            lastPressedButton = ((Button) v).getText().toString();
-            if (isPreviousNumberEnded) {
-                isPreviousNumberEnded = false;
-                calculator.intermediateResult = 0;
-                resultTv.setText("");
-            }
-            displayToOutput(resultTv, lastPressedButton);
-        } else
-            Toast.makeText(MainActivity.this, "Жду операцию", Toast.LENGTH_SHORT).show();
+        if (calculator.lastPressedButtonType.equals("operation")) {
+            calculator.currentResultString = "";
+        }
+        calculator.lastPressedButtonType = "digit";
+        calculator.lastPressedButton = getCurrentButtonText(v);
+        calculator.currentResultString = addLastChar(calculator.currentResultString, calculator.lastPressedButton);
+        calculator.intermediateResult = Double.parseDouble(calculator.currentResultString);
+        displayResult(resultTv, calculator.currentResultString);
     }
 
 
     public void onClickDotButton(View v) {
-        if (!typeLastPressedButton.equals("equal")) {
-            typeLastPressedButton = "dot";
-            if (doubleDotChecker)
-                Toast.makeText(MainActivity.this, "В числе уже есть 1 разделитель", Toast.LENGTH_SHORT).show();
-            else {
-                doubleDotChecker = true;
-                lastPressedButton = ((Button) v).getText().toString();
-                displayToOutput(resultTv, lastPressedButton);
-            }
-        } else Toast.makeText(MainActivity.this, "Жду операцию", Toast.LENGTH_SHORT).show();
+        if (calculator.dotCounter > 0)
+            Toast.makeText(MainActivity.this, "В числе уже есть 1 разделитель", Toast.LENGTH_SHORT).show();
+        else {
+            calculator.lastPressedButtonType = "dot";
+            calculator.dotCounter++;
+            calculator.lastPressedButton = ".";
+            if (calculator.lastPressedButtonType.equals("None") || calculator.lastPressedButtonType.equals("operation")) {
+                calculator.lastPressedButton = ".";
+                calculator.currentResultString = addFirstChar(calculator.currentResultString, "0.");
+            } else
+                calculator.currentResultString = addLastChar(calculator.currentResultString, ".");
+        }
+    }
+
+    public void onClickSquareRootButton(View v) {
+
     }
 
     public void onClickOperationButton(View v) {
 
-        if (typeLastPressedButton.equals("None"))
+        if (calculator.lastPressedButtonType.equals("None") || calculator.lastPressedButtonType.equals("operation"))
             Toast.makeText(MainActivity.this, "Операция сейчас неуместна", Toast.LENGTH_SHORT).show();
-        else if (typeLastPressedButton.equals("digit") || typeLastPressedButton.equals("equal")) {
-            typeLastPressedButton = "digit";
-            operationsCounter++;
-            if (operationsCounter == 1) {
-                calculator.firstNumber = calculator.intermediateResult;
-                calculator.operation = ((Button) v).getText().toString().charAt(0);
-                calculator.intermediateResult = 0;
-                isPreviousNumberEnded = true;
-            } else {
-                calculator.secondNumber = calculator.intermediateResult;
-                calculator.firstNumber = calculator.calculate(calculator.firstNumber, calculator.secondNumber, calculator.operation);
-                calculator.operation = ((Button) v).getText().toString().charAt(0);
-                currentResultString = String.valueOf(calculator.firstNumber);
-                resultTv.setText(currentResultString);
-                isPreviousNumberEnded = true;
+        else {
+            if (calculator.lastPressedButtonType.equals("digit") || calculator.lastPressedButtonType.equals("equal")) {
+                calculator.lastPressedButtonType = "operation";
+                calculator.operationCounter++;
+                calculator.dotCounter = 0;
+                calculator.lastPressedButton = getCurrentButtonText(v);
+                calculator.operation = calculator.lastPressedButton.charAt(0);
+                if (calculator.operationCounter == 1) {
+                    calculator.firstNumber = calculator.intermediateResult;
+                    calculator.intermediateResult = 0;
+                    calculator.currentResultString = addLastChar(calculator.currentResultString, calculator.lastPressedButton);
+                } else {
+                    calculator.secondNumber = calculator.intermediateResult;
+                    calculator.firstNumber = calculator.calculate(calculator.firstNumber, calculator.secondNumber, calculator.operation);
+                    calculator.currentResultString = String.valueOf(calculator.firstNumber);
+                }
+                resultTv.setText(calculator.currentResultString);
 
             }
-        }
 
+        }
     }
 }
