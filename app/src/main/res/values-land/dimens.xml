@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="result_string_text_size">32sp</dimen>
-    <dimen name="button_digit_text_size">24sp</dimen>
+    <dimen name="result_string_text_size">24sp</dimen>
+    <dimen name="button_digit_text_size">16sp</dimen>
     <dimen name="default_button_margin">4dp</dimen>
-
+    <dimen name="button_operation_text_size">12sp</dimen>
 </resources>

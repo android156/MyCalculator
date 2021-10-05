@@ -24,9 +24,68 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/half_default_button_margin"
             android:background="@drawable/result_text_style"
-            android:gravity="right"
+            android:gravity="end"
             android:textColor="@color/magenta"
             android:textSize="@dimen/result_string_text_size" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/memory_button"
+                style="@style/CalcButtonStyle.Operation"
+                android:text="@string/button_memory" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/memory_restore_button"
+                style="@style/CalcButtonStyle.Operation"
+                android:text="@string/button_memory_restore" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/operation_sqrt_button"
+                style="@style/CalcButtonStyle.Operation"
+                android:text="@string/button_sqrt" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/operation_clear_button"
+                style="@style/CalcButtonStyle.Operation"
+                android:text="@string/button_clear" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_operation_button"
+                style="@style/CalcButtonStyle.Operation"
+                android:text="@string/button_add" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/subtraction_operation_button"
+                style="@style/CalcButtonStyle.Operation"
+                android:text="@string/button_sub" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/multiply_operation_button"
+                style="@style/CalcButtonStyle.Operation"
+                android:text="@string/button_mult" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/divide_operation_button"
+                style="@style/CalcButtonStyle.Operation"
+                android:text="@string/button_div" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,10 +113,7 @@
                 style="@style/CalcButtonStyle"
                 android:text="@string/button_4" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/add_operation_button"
-                style="@style/CalcButtonStyle.Operation"
-                android:text="@string/button_add" />
+
 
         </LinearLayout>
 
@@ -87,10 +143,7 @@
                 style="@style/CalcButtonStyle"
                 android:text="@string/button_8" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/subtraction_operation_button"
-                style="@style/CalcButtonStyle.Operation"
-                android:text="@string/button_sub" />
+
 
         </LinearLayout>
 
@@ -108,7 +161,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/digit_zero_button"
                 style="@style/CalcButtonStyle"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:text="@string/button_0" />
 
             <com.google.android.material.button.MaterialButton
@@ -117,32 +170,18 @@
                 android:text="@string/button_dot" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/multiply_operation_button"
-                style="@style/CalcButtonStyle.Operation"
-                android:text="@string/button_mult" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-
-            <com.google.android.material.button.MaterialButton
                 android:id="@+id/calculate_result_button"
                 style="@style/CalcButtonStyle.Operation"
-                android:layout_weight="4"
+                android:layout_weight="1"
                 app:strokeColor="@color/magenta"
                 app:strokeWidth="5dp"
                 android:text="@string/button_eqv" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/divide_operation_button"
-                style="@style/CalcButtonStyle.Operation"
-                android:text="@string/button_div" />
+
 
         </LinearLayout>
+
+
 
     </LinearLayout>
 
