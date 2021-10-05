@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="magenta">#F60657</color>
+    <color name="violet">#6019DF</color>
+    <color name="dark_violet">#1D024E</color>
+
+
+    <color name="digit_button">@color/violet</color>
+    <color name="sign_button">@color/dark_violet</color>
+    <color name="sign_button_text_color">@color/magenta</color>
 </resources>
