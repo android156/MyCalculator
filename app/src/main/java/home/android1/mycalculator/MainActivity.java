@@ -1,5 +1,6 @@
 package home.android1.mycalculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String CALCULATOR_KEY = "calculator_key";
     private TextView resultTv;
     private Button digitOneButton;
     private Button digitTwoButton;
@@ -34,19 +36,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Calculator calculator;
 
 
-    private double calculateResult(double startNumber, double lastNumber, char operation) {
-        double result = 0;
-        return result;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initView();
         setupListeners();
-        initCalculator();
+        if (savedInstanceState != null && savedInstanceState.containsKey(CALCULATOR_KEY)) {
+            calculator = (Calculator) savedInstanceState.getSerializable(CALCULATOR_KEY);
+            resultTv.setText(calculator.currentResultString);
+        }
+        else initCalculator();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        // TODO: 05.10.2021 parcelable!!! 
+        outState.putSerializable(CALCULATOR_KEY, calculator);
+        Toast.makeText(MainActivity.this, "Сохраняем объект Калькулятор", Toast.LENGTH_SHORT).show();
+
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
     }
 
     private void initView() {
@@ -197,14 +212,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (calculator.isDotInCurrentNumber)
             Toast.makeText(MainActivity.this, "В числе уже есть 1 разделитель", Toast.LENGTH_SHORT).show();
         else {
-            calculator.lastPressedButtonType = "dot";
             calculator.isDotInCurrentNumber = true;
-            calculator.lastPressedButton = ".";
             if (calculator.lastPressedButtonType.equals("None") || calculator.lastPressedButtonType.equals("operation")) {
-                calculator.lastPressedButton = ".";
                 calculator.currentResultString = addFirstChar(calculator.currentResultString, "0.");
             } else
                 calculator.currentResultString = addLastChar(calculator.currentResultString, ".");
+            calculator.lastPressedButton = ".";
+            calculator.lastPressedButtonType = "dot";
         }
     }
 
@@ -214,7 +228,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             calculator.intermediateResult = Math.sqrt(calculator.intermediateResult);
             calculator.currentResultString = String.valueOf(calculator.intermediateResult);
             displayResult(resultTv, calculator.currentResultString);
-        } else Toast.makeText(MainActivity.this, "Нельзя извлечь корень из отрицательного числа", Toast.LENGTH_SHORT).show();
+        } else
+            Toast.makeText(MainActivity.this, "Нельзя извлечь корень из отрицательного числа", Toast.LENGTH_SHORT).show();
     }
 
     public void onClickOperationButton(View v) {

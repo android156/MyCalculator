@@ -1,6 +1,8 @@
 package home.android1.mycalculator;
 
-public class Calculator {
+import java.io.Serializable;
+
+public class Calculator implements Serializable {
     double intermediateResult;
     double firstNumber;
     double secondNumber;
