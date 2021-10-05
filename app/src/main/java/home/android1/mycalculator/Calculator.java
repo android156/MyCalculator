@@ -7,24 +7,22 @@ public class Calculator {
     String currentResultString;
     char operation;
     int operationCounter;
-    int dotCounter;
+    boolean isDotInCurrentNumber;
     String lastPressedButtonType;
     String lastPressedButton;
-    boolean isFirstNumberEmpty;
-    boolean isSecondNumberEmpty;
+    double memoryNumber;
 
-    public Calculator(double intermediateResult, double firstNumber, double secondNumber, String currentResultString, char operation, int operationCounter, int dotCounter, String lastPressedButtonType, String lastPressedButton, boolean isFirstNumberEmpty, boolean isSecondNumberEmpty) {
+    public Calculator(double intermediateResult, double firstNumber, double secondNumber, String currentResultString, char operation, int operationCounter, boolean isDotInCurrentNumber, String lastPressedButtonType, String lastPressedButton, double memoryNumber) {
         this.intermediateResult = intermediateResult;
         this.firstNumber = firstNumber;
         this.secondNumber = secondNumber;
         this.currentResultString = currentResultString;
         this.operation = operation;
         this.operationCounter = operationCounter;
-        this.dotCounter = dotCounter;
+        this.isDotInCurrentNumber = isDotInCurrentNumber;
         this.lastPressedButtonType = lastPressedButtonType;
         this.lastPressedButtonType = lastPressedButton;
-        this.isFirstNumberEmpty = isFirstNumberEmpty;
-        this.isSecondNumberEmpty = isSecondNumberEmpty;
+        this.memoryNumber = memoryNumber;
     }
 
     double calculate (double firstNumber, double secondNumber, char operation){

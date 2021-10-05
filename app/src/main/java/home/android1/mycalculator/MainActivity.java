@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         initView();
         setupListeners();
+        initCalculator();
     }
 
     private void initView() {
@@ -71,10 +72,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         calculateSquareRootButton = findViewById(R.id.operation_sqrt_button);
         addToMemoryButton = findViewById(R.id.memory_button);
         getFromMemoryButton = findViewById(R.id.memory_restore_button);
+    }
+
+    private void initCalculator() {
         resultTv.setText("0");
-        calculator = new Calculator(0, 0, 0, "", 'N', 0, 0, "None", "", true, true);
-
-
+        calculator = new Calculator(0, 0, 0, "", 'N', 0, false, "None", "", 0);
     }
 
     private void setupListeners() {
@@ -95,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         divideOperationButton.setOnClickListener(this::onClickOperationButton);
         calculateResultButton.setOnClickListener(this::onClickCalculateResultButton);
         clearButton.setOnClickListener(this::onClickClearButton);
-        calculateSquareRootButton.setOnClickListener(this::onClickOperationButton);
+        calculateSquareRootButton.setOnClickListener(this::onClickSquareRootButton);
         addToMemoryButton.setOnClickListener(this::onClickMemoryButton);
         getFromMemoryButton.setOnClickListener(this::onClickMemoryButton);
 
@@ -103,9 +105,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void onClickClearButton(View view) {
+        initCalculator();
     }
 
-    private void onClickMemoryButton(View view) {
+    private void onClickMemoryButton(View v) {
+        if (getCurrentButtonText(v).equals("M+")) {
+            calculator.memoryNumber += calculator.intermediateResult;
+        } else {
+            calculator.intermediateResult = calculator.memoryNumber;
+            calculator.isDotInCurrentNumber = true;
+            calculator.currentResultString = String.valueOf(calculator.intermediateResult);
+            displayResult(resultTv, calculator.currentResultString);
+
+        }
     }
 
 
@@ -131,7 +143,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return (firstChar + currentResultString);
     }
 
-
     public String removeLastChar(String s) {
         if (s == null || s.length() == 0)
             return "0";
@@ -152,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(MainActivity.this, "Нечего считать ", Toast.LENGTH_SHORT).show();
         else {
             calculator.operationCounter = 0;
-            calculator.dotCounter = 0;
+            calculator.isDotInCurrentNumber = true;
             if (calculator.lastPressedButtonType.equals("operation") || calculator.lastPressedButtonType.equals("dot")) {
                 calculator.currentResultString = removeLastChar(calculator.currentResultString);
                 displayResult(resultTv, calculator.currentResultString);
@@ -163,7 +174,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 calculator.currentResultString = String.valueOf(calculator.firstNumber);
                 displayResult(resultTv, calculator.currentResultString);
                 calculator.intermediateResult = calculator.firstNumber;
-                calculator.isFirstNumberEmpty = false;
             }
 
         }
@@ -184,11 +194,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     public void onClickDotButton(View v) {
-        if (calculator.dotCounter > 0)
+        if (calculator.isDotInCurrentNumber)
             Toast.makeText(MainActivity.this, "В числе уже есть 1 разделитель", Toast.LENGTH_SHORT).show();
         else {
             calculator.lastPressedButtonType = "dot";
-            calculator.dotCounter++;
+            calculator.isDotInCurrentNumber = true;
             calculator.lastPressedButton = ".";
             if (calculator.lastPressedButtonType.equals("None") || calculator.lastPressedButtonType.equals("operation")) {
                 calculator.lastPressedButton = ".";
@@ -199,18 +209,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void onClickSquareRootButton(View v) {
-
+        if (calculator.intermediateResult >= 0) {
+            calculator.isDotInCurrentNumber = true;
+            calculator.intermediateResult = Math.sqrt(calculator.intermediateResult);
+            calculator.currentResultString = String.valueOf(calculator.intermediateResult);
+            displayResult(resultTv, calculator.currentResultString);
+        } else Toast.makeText(MainActivity.this, "Нельзя извлечь корень из отрицательного числа", Toast.LENGTH_SHORT).show();
     }
 
     public void onClickOperationButton(View v) {
 
-        if (calculator.lastPressedButtonType.equals("None") || calculator.lastPressedButtonType.equals("operation"))
+        if (calculator.lastPressedButtonType.equals("operation"))
             Toast.makeText(MainActivity.this, "Операция сейчас неуместна", Toast.LENGTH_SHORT).show();
         else {
             if (calculator.lastPressedButtonType.equals("digit") || calculator.lastPressedButtonType.equals("equal")) {
                 calculator.lastPressedButtonType = "operation";
                 calculator.operationCounter++;
-                calculator.dotCounter = 0;
+                calculator.isDotInCurrentNumber = false;
                 calculator.lastPressedButton = getCurrentButtonText(v);
                 calculator.operation = calculator.lastPressedButton.charAt(0);
                 if (calculator.operationCounter == 1) {
@@ -218,6 +233,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     calculator.intermediateResult = 0;
                     calculator.currentResultString = addLastChar(calculator.currentResultString, calculator.lastPressedButton);
                 } else {
+                    calculator.isDotInCurrentNumber = true;
                     calculator.secondNumber = calculator.intermediateResult;
                     calculator.firstNumber = calculator.calculate(calculator.firstNumber, calculator.secondNumber, calculator.operation);
                     calculator.currentResultString = String.valueOf(calculator.firstNumber);
