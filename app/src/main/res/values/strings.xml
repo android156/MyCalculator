@@ -20,4 +20,8 @@
     <string name="button_sqrt" translatable="false">sqrt</string>
     <string name="button_memory" translatable="false">M+</string>
     <string name="button_memory_restore" translatable="false">MR</string>
+    <string name="button_exit">exit</string>
+    <string name="Settings">Settings</string>
+    <string name="button_close_app">Close App</string>
+    <string name="button_settings">SETUP</string>
 </resources>

@@ -3,6 +3,7 @@ package home.android1.mycalculator;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String CALCULATOR_KEY = "calculator_key";
+
     private TextView resultTv;
     private Button digitOneButton;
     private Button digitTwoButton;
@@ -33,7 +35,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button addToMemoryButton;
     private Button getFromMemoryButton;
     private Button clearButton;
+    private Button settingsButton;
     private Calculator calculator;
+    Intent intent;
 
 
 
@@ -87,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         calculateSquareRootButton = findViewById(R.id.operation_sqrt_button);
         addToMemoryButton = findViewById(R.id.memory_button);
         getFromMemoryButton = findViewById(R.id.memory_restore_button);
+        settingsButton = findViewById(R.id.settings_button);
     }
 
     private void initCalculator() {
@@ -115,8 +120,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         calculateSquareRootButton.setOnClickListener(this::onClickSquareRootButton);
         addToMemoryButton.setOnClickListener(this::onClickMemoryButton);
         getFromMemoryButton.setOnClickListener(this::onClickMemoryButton);
+        settingsButton.setOnClickListener(this::onClickSettingsButton);
 
 
+
+    }
+
+    private void onClickSettingsButton(View view) {
+        SettingsActivity.start(this, calculator.currentResultString);
     }
 
     private void onClickClearButton(View view) {

@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Мой калькулятор</string>
+    <string name="button_exit">Выход</string>
+    <string name="Settings">Настройки</string>
+    <string name="button_close_app">Закрыть приложу</string>
 
 </resources>

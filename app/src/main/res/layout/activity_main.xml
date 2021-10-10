@@ -55,6 +55,7 @@
                 style="@style/CalcButtonStyle.Operation"
                 android:text="@string/button_clear" />
 
+
         </LinearLayout>
 
         <LinearLayout
@@ -163,6 +164,20 @@
                 android:id="@+id/divide_operation_button"
                 style="@style/CalcButtonStyle.Operation"
                 android:text="@string/button_div" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/settings_button"
+                style="@style/CalcButtonStyle.Operation"
+                android:text="@string/button_settings" />
+
 
         </LinearLayout>
 
